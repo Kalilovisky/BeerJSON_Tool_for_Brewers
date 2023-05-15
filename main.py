@@ -2,8 +2,20 @@ import os
 import glob
 
 from src.Yeast.YeastSpreadsheet import YeastSpreadsheet
-
+from src.Hop.HopUrls import HopUrls
+ 
 def main():
+    hop()
+
+
+
+def hop():
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+    hopUrls = HopUrls()
+    hopList = hopUrls.getHopList()
+    hopUrls.createHopBeerJSON(hopList)
+
+def yeast() :
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     my_files = glob.glob('src/Yeast/*.xls')
     yeast_list = []
